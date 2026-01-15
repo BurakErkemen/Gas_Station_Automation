@@ -1,0 +1,19 @@
+﻿body {
+    background: transparent;
+}
+
+.navbar-transparent {
+    background-color: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+/* İçerik navbar'ın altından başlaması için boşluk bırak */
+main.content-with-navbar {
+    padding-top: 5.25rem; /* navbar yüksekliğine göre ayarlayın */
+}

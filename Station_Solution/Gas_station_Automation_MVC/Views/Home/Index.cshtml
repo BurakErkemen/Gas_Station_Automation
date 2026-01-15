@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<section class="py-5" style="min-height:70vh; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));">
+    <div class="container position-relative">
+        <!-- Giriş ikonu (sağ üst) -->
+        <a class="btn btn-outline-light rounded-circle p-2 position-absolute" style="width:48px; height:48px; right:0; top:0; transform: translate(-16px,16px);" asp-controller="Account" asp-action="Login" title="Giriş Yap">
+            <!-- Basit kullanıcı ikonu (SVG) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd" d="M8 9a5 5 0 0 0-5 5v.5A1.5 1.5 0 0 0 4.5 16h7A1.5 1.5 0 0 0 13 14.5V14a5 5 0 0 0-5-5z" />
+            </svg>
+        </a>
+
+        <div class="row align-items-center" style="padding-top:3.5rem;">
+            <div class="col-lg-8">
+                <h1 class="display-5 text-white fw-bold">Firma Adı</h1>
+                <p class="lead text-white-50">
+                    Burada firmanızı kısa ve etkili bir şekilde tanıtın. Hizmetler, vizyon veya sektörünüz hakkında 1-2 cümle yazabilirsiniz.
+                </p>
+
+                <ul class="list-unstyled text-white-50">
+                    <li><strong>Adres:</strong> Örnek Mah. 123, Şehir</li>
+                    <li><strong>Telefon:</strong> +90 555 000 0000</li>
+                </ul>
+
+                <div class="mt-4">
+                    <a class="btn btn-primary btn-lg" asp-controller="Home" asp-action="Privacy">Daha Fazla Bilgi</a>
+                    <a class="btn btn-outline-light btn-lg ms-2" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 d-none d-lg-block">
+                <div class="card bg-light text-dark shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Çalışma Saatleri</h5>
+                        <p class="card-text mb-1">Pazartesi - Cuma: 08:00 - 18:00</p>
+                        <p class="card-text">Cumartesi: 09:00 - 14:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
