@@ -1,4 +1,17 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// wwwroot/js/site.js dosyanıza ekleyin
+document.addEventListener('DOMContentLoaded', function () {
+    const videos = document.querySelectorAll('.gallery-video-container video');
 
-// Write your JavaScript code.
+    videos.forEach(video => {
+        const container = video.closest('.gallery-video-container');
+
+        container.addEventListener('mouseenter', () => {
+            video.play();
+        });
+
+        container.addEventListener('mouseleave', () => {
+            video.pause();
+            video.currentTime = 0;
+        });
+    });
+});

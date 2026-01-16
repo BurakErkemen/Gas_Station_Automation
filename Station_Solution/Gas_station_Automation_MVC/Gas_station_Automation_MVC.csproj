@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Odemeler\" />
+    <Folder Include="Models\Fatura\" />
+    <Folder Include="Models\Veresiye\" />
+    <Folder Include="Models\Fiyat\" />
+    <Folder Include="Models\Musteri\" />
+  </ItemGroup>
+
 </Project>

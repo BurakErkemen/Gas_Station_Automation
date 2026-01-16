@@ -20,3 +20,41 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* Instagram Video Gömme Özel Stili */
+.instagram-video-container {
+    width: 100%;
+    overflow: hidden; /* Taþan kýsýmlarý gizle */
+    border-radius: 12px; /* Galeri öðelerinizle ayný köþe yuvarlaklýðý */
+    background: #FFF; /* Arka plan rengini sabitle */
+    margin-bottom: 15px; /* Alt yazý ile arasýna boþluk */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Galeri öðeleriyle ayný gölge */
+}
+
+    /* Instagram'ýn kendi oluþturduðu blockquote etiketine müdahale */
+    .instagram-video-container blockquote.instagram-media {
+        width: 100% !important; /* Container'ýn geniþliðini tam doldursun */
+        min-width: 0 !important; /* Instagram'ýn min-width kuralýný geçersiz kýlsýn */
+        margin: 0 !important; /* Varsayýlan margin'i sýfýrla */
+        box-shadow: none !important; /* Instagram'ýn kutu gölgesini kaldýr */
+    }
+
+/* GALERÝ VÝDEO STÝLLERÝ */
+.gallery-video-container {
+    width: 100%;
+    height: 250px; /* GALERÝDEKÝ RESÝMLERLE AYNI YÜKSEKLÝK */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom: 15px;
+    background-color: #000; /* Video yüklenirken siyah arkaplan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .gallery-video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* VÝDEOYU ALANI TAMAMEN DOLDURACAK ÞEKÝLDE KIRPAR */
+        display: block;
+    }
