@@ -1,5 +1,4 @@
 ﻿using Google.Cloud.Firestore;
-using Google.Protobuf.WellKnownTypes;
 using System.ComponentModel.DataAnnotations;
 
 namespace Gas_station_Automation_MVC.Models;
@@ -25,10 +24,10 @@ public class User
     public required string Role { get; set; } // "admin", "moderator", "customer"
 
     [FirestoreProperty]
-    public Google.Cloud.Firestore.Timestamp CreatedAt { get; set; }
+    public Timestamp CreatedAt { get; set; }
 
     [FirestoreProperty]
-    public Google.Cloud.Firestore.Timestamp? LastLoginAt { get; set; }
+    public Timestamp? LastLoginAt { get; set; }
 
     [FirestoreProperty]
     public string CreatedByUid { get; set; } = default!;
@@ -37,4 +36,3 @@ public class User
     public bool IsActive { get; set; } = true;
 
 }
-
