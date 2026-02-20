@@ -1,0 +1,252 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+
+<div class="container-fluid py-4">
+    <div class="row g-4">
+        <!-- Sidebar -->
+        <aside class="col-lg-2 d-none d-lg-block">
+            <div class="dash-sidebar p-3">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div class="dash-badge">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold text-white">Yönetim</div>
+                        <div class="small text-white-50">Kahramanlar Belen</div>
+                    </div>
+                </div>
+
+                <nav class="dash-nav">
+                    <a class="dash-nav__link active" href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="dash-nav__link" href="#">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <span>Fiyat Yönetimi</span>
+                    </a>
+                    <a class="dash-nav__link" href="#">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Güncelleme Logları</span>
+                    </a>
+                    <a class="dash-nav__link" href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Ayarlar</span>
+                    </a>
+                </nav>
+
+                <div class="mt-4 pt-3 border-top border-light border-opacity-10">
+                    <div class="small text-white-50 mb-2">Hızlı işlemler</div>
+                    <button class="btn btn-opet w-100 btn-sm" data-bs-toggle="modal" data-bs-target="#updatePricesModal">
+                        <i class="fa-solid fa-pen-to-square me-2"></i>Fiyat Güncelle
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main -->
+        <section class="col-lg-10">
+            <!-- Topbar -->
+            <div class="dash-topbar p-3 p-lg-4 mb-4">
+                <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-3">
+                    <div>
+                        <h1 class="h4 mb-1">Dashboard</h1>
+                        <div class="text-muted small">
+                            Son güncelleme: <span id="fuelPricesUpdatedAt">—</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-outline-secondary btn-sm" href="/">
+                            <i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Siteyi Aç
+                        </a>
+                        <button class="btn btn-opet btn-sm" data-bs-toggle="modal" data-bs-target="#updatePricesModal">
+                            <i class="fa-solid fa-pen-to-square me-2"></i>Fiyat Güncelle
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="row g-3">
+                <div class="col-6 col-xl-3">
+                    <div class="dash-card">
+                        <div class="dash-card__label">
+                            <i class="fa-solid fa-gas-pump me-2"></i>Benzin
+                        </div>
+                        <div class="dash-card__value" id="benzinPrice">—</div>
+                        <div class="dash-card__foot">₺/L</div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <div class="dash-card">
+                        <div class="dash-card__label">
+                            <i class="fa-solid fa-oil-can me-2"></i>Diesel
+                        </div>
+                        <div class="dash-card__value" id="dizelPrice">—</div>
+                        <div class="dash-card__foot">₺/L</div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <div class="dash-card">
+                        <div class="dash-card__label">
+                            <i class="fa-solid fa-droplet me-2"></i>EuroDiesel
+                        </div>
+                        <div class="dash-card__value" id="eurodieselPrice">—</div>
+                        <div class="dash-card__foot">₺/L</div>
+                    </div>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <div class="dash-card">
+                        <div class="dash-card__label">
+                            <i class="fa-solid fa-fire-flame-simple me-2"></i>LPG
+                        </div>
+                        <div class="dash-card__value" id="lpgPrice">—</div>
+                        <div class="dash-card__foot">₺/L</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content row -->
+            <div class="row g-4 mt-1">
+                <div class="col-xl-7">
+                    <div class="dash-panel p-3 p-lg-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div>
+                                <div class="fw-bold">Son Güncellemeler</div>
+                                <div class="text-muted small">Taslak tablo (sonra Firestore’dan doldururuz)</div>
+                            </div>
+                            <button class="btn btn-outline-secondary btn-sm" type="button" id="refreshBtn">
+                                <i class="fa-solid fa-rotate me-2"></i>Yenile
+                            </button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle table-sm">
+                                <thead>
+                                    <tr class="text-muted">
+                                        <th>Tarih</th>
+                                        <th>İşlem</th>
+                                        <th class="text-end">Detay</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="updatesTbody">
+                                    <tr>
+                                        <td class="text-muted">—</td>
+                                        <td>Fiyat güncelleme</td>
+                                        <td class="text-end text-muted">Taslak</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-muted">—</td>
+                                        <td>Fiyat güncelleme</td>
+                                        <td class="text-end text-muted">Taslak</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="small text-muted mt-2">
+                            İpucu: Buraya “kim güncelledi” bilgisini de ekleyebiliriz (login sistemine göre).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-5">
+                    <div class="dash-panel p-3 p-lg-4">
+                        <div class="fw-bold mb-2">Hızlı İşlemler</div>
+                        <div class="text-muted small mb-3">Sık kullanılan aksiyonlar</div>
+
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-opet" data-bs-toggle="modal" data-bs-target="#updatePricesModal">
+                                <i class="fa-solid fa-pen-to-square me-2"></i>Fiyat Güncelle
+                            </button>
+
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="fa-solid fa-file-export me-2"></i>Rapor Al (taslak)
+                            </button>
+
+                            <button class="btn btn-outline-secondary" type="button">
+                                <i class="fa-solid fa-shield-halved me-2"></i>Güvenlik / Yetkiler (taslak)
+                            </button>
+                        </div>
+
+                        <hr />
+
+                        <div class="fw-bold mb-2">Durum</div>
+                        <div class="dash-status">
+                            <div class="dash-status__item">
+                                <span class="dot dot-green"></span>
+                                <span class="text-muted">Firestore bağlantısı</span>
+                                <span class="ms-auto fw-semibold" id="fsStatus">—</span>
+                            </div>
+                            <div class="dash-status__item">
+                                <span class="dot dot-gold"></span>
+                                <span class="text-muted">Veri akışı</span>
+                                <span class="ms-auto fw-semibold" id="streamStatus">—</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- =========================
+        UPDATE MODAL
+========================== -->
+<div class="modal fade" id="updatePricesModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content dash-modal">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fa-solid fa-pen-to-square me-2"></i>Fiyat Güncelle
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="alert alert-warning small mb-3">
+                    Taslak: Bu form şu an sadece UI. Sonraki adımda Firestore’a “update” bağlayacağız.
+                </div>
+
+                <form id="priceForm" class="row g-3">
+                    <div class="col-6">
+                        <label class="form-label">Benzin</label>
+                        <input class="form-control" type="number" step="0.01" min="0" name="Benzin" placeholder="49.59" required />
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Diesel</label>
+                        <input class="form-control" type="number" step="0.01" min="0" name="Diesel" placeholder="45.57" required />
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">EuroDiesel</label>
+                        <input class="form-control" type="number" step="0.01" min="0" name="EuroDiesel" placeholder="47.57" required />
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">LPG</label>
+                        <input class="form-control" type="number" step="0.01" min="0" name="LPG" placeholder="20.50" required />
+                    </div>
+
+                    <div class="col-12">
+                        <button id="savePricesBtn" class="btn btn-opet w-100" type="submit">
+                            <span class="me-2"><i class="fa-solid fa-floppy-disk"></i></span>
+                            Kaydet (taslak)
+                            <span id="saveSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                        </button>
+                        <div class="small text-muted mt-2">
+                            Kaydederken LastUpdate alanı otomatik serverTimestamp olmalı (sonraki adım).
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+}

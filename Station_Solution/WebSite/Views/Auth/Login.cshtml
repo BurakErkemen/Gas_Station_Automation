@@ -1,0 +1,224 @@
+﻿@model WebSite.Models.ViewModels.LoginVm
+@Html.AntiForgeryToken()
+<input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+@{
+    ViewData["Title"] = "Giriş";
+    var returnUrl = Context.Request.Query["returnUrl"].ToString();
+}
+
+<style>
+    /* Login sayfası (istersen bunu _layout.css’e taşıyabilirsin) */
+    .auth-page {
+        min-height: calc(100vh - 76px);
+        display: flex;
+        align-items: center;
+        padding: 2.5rem 0;
+        background: radial-gradient(circle at 20% 15%, rgba(192,10,30,.10), transparent 45%), radial-gradient(circle at 85% 10%, rgba(255,215,0,.10), transparent 50%), linear-gradient(180deg, rgba(0,51,160,.06), transparent 55%);
+    }
+
+    .auth-card {
+        border: 1px solid rgba(0,0,0,.06);
+        border-radius: 1.25rem;
+        overflow: hidden;
+        box-shadow: 0 18px 60px rgba(0,0,0,.10);
+        background: #fff;
+    }
+
+    .auth-card__top {
+        background: linear-gradient(135deg, #001a52 0%, #0033a0 55%, #001a52 100%);
+        padding: 1.25rem 1.25rem 1rem;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .auth-card__top::before {
+            content: "";
+            position: absolute;
+            inset: -40% -30%;
+            background: radial-gradient(circle at 20% 25%, rgba(192,10,30,.28), transparent 40%), radial-gradient(circle at 80% 35%, rgba(255,215,0,.18), transparent 42%), radial-gradient(circle at 55% 85%, rgba(255,255,255,.10), transparent 45%);
+            transform: rotate(8deg);
+            pointer-events: none;
+        }
+
+    .auth-brand {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .auth-brand__logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.18);
+    }
+
+    .auth-brand__title {
+        margin: 0;
+        font-weight: 800;
+        letter-spacing: -.3px;
+        font-size: 1.05rem;
+    }
+
+    .auth-brand__subtitle {
+        margin: 0;
+        opacity: .85;
+        font-size: .9rem;
+    }
+
+    .auth-card__body {
+        padding: 1.25rem;
+    }
+
+    .auth-help {
+        color: #64748b;
+        font-size: .92rem;
+    }
+
+    .auth-btn {
+        background: #0033a0;
+        border: 0;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 999px;
+        padding: .7rem 1.1rem;
+    }
+
+        .auth-btn:hover {
+            background: #002a84;
+            color: #fff;
+        }
+
+    .input-group-text {
+        background: #f8fafc;
+        border-color: rgba(0,0,0,.10);
+    }
+
+    .form-control {
+        border-color: rgba(0,0,0,.10);
+        border-radius: .9rem;
+    }
+
+    .input-group .form-control {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .auth-note {
+        font-size: .85rem;
+        color: #94a3b8;
+    }
+</style>
+
+<section class="auth-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-10 col-md-8 col-lg-5">
+                <div class="auth-card">
+                    <div class="auth-card__top">
+                        <div class="auth-brand">
+                            <div class="auth-brand__logo">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <p class="auth-brand__title">Yönetim Paneli Girişi</p>
+                                <p class="auth-brand__subtitle">Kahramanlar Belen Akaryakıt</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="auth-card__body">
+                        <div class="mb-3 auth-help">
+                            Akaryakıt fiyatlarını güncellemek için giriş yapın.
+                        </div>
+
+                        <form id="loginForm" asp-action="Login" method="post" novalidate>
+                            @Html.AntiForgeryToken()
+
+                            @* Login sonrası geri dönüş için *@
+                            <input type="hidden" name="returnUrl" value="@returnUrl" />
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                            <div class="mb-3">
+                                <label asp-for="Email" class="form-label">E-posta</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </span>
+                                    <input asp-for="Email" class="form-control" type="email" placeholder="ornek@firma.com" autocomplete="email" required />
+                                </div>
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+
+                            <div class="mb-3">
+                                <label asp-for="Password" class="form-label">Şifre</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-key"></i>
+                                    </span>
+                                    <input asp-for="Password" class="form-control" type="password" placeholder="••••••••" autocomplete="current-password" required />
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePasswordBtn" aria-label="Şifreyi göster/gizle">
+                                        <i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+                                    </button>
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger small"></span>
+                            </div>
+
+                            <button id="loginBtn" type="submit" class="auth-btn w-100">
+                                <span id="loginBtnText"><i class="fa-solid fa-right-to-bracket me-2"></i>Giriş Yap</span>
+                                <span id="loginSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status" aria-hidden="true"></span>
+                            </button>
+
+                            <div class="mt-3 auth-note">
+                                Sorun yaşıyorsanız sistem yöneticinizle iletişime geçin.
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="text-center mt-3 text-muted small">
+                    © @DateTime.Now.Year • Created by <span class="fw-semibold">B-async Software</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btn = document.getElementById("togglePasswordBtn");
+            const icon = document.getElementById("togglePasswordIcon");
+            const pwd = document.getElementById("Password");
+
+            if (btn && pwd) {
+                btn.addEventListener("click", function () {
+                    const isPwd = pwd.getAttribute("type") === "password";
+                    pwd.setAttribute("type", isPwd ? "text" : "password");
+                    if (icon) icon.className = isPwd ? "fa-regular fa-eye-slash" : "fa-regular fa-eye";
+                });
+            }
+
+            const form = document.getElementById("loginForm");
+            const loginBtn = document.getElementById("loginBtn");
+            const spinner = document.getElementById("loginSpinner");
+
+            if (form && loginBtn) {
+                form.addEventListener("submit", function () {
+                    loginBtn.disabled = true;
+                    if (spinner) spinner.classList.remove("d-none");
+                });
+            }
+        });
+    </script>
+}

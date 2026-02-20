@@ -1,0 +1,306 @@
+﻿/* =========================
+   OPET THEME ROOT
+========================= */
+:root {
+    --opet-navy: #0033a0;
+    --opet-red: #c00a1e;
+    --opet-gold: #ffd700;
+    --text: #0f172a;
+    --muted: #64748b;
+    --bg: #ffffff;
+    --radius-xl: 1.25rem;
+    --shadow-sm: 0 10px 30px rgba(0,0,0,.08);
+    --shadow-md: 0 18px 60px rgba(0,0,0,.14);
+}
+
+/* =========================
+   BASE
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.app-body {
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--opet-navy);
+}
+
+    a:hover {
+        color: #002a84;
+    }
+
+.navbar-spacer {
+    height: 76px;
+}
+/* fixed-top navbar offset */
+
+/* =========================
+   NAVBAR
+========================= */
+.app-navbar {
+    background: rgba(0, 18, 51, .88);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    backdrop-filter: blur(10px);
+}
+
+.brand-logo {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.brand-text {
+    font-weight: 700;
+    letter-spacing: -.2px;
+    font-size: 0.98rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255,.78);
+    font-weight: 600;
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #fff;
+    }
+
+    .navbar-dark .navbar-nav .nav-link.active {
+        color: var(--opet-gold);
+    }
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-opet {
+    background: var(--opet-navy);
+    color: #fff;
+    border: 0;
+    border-radius: 999px;
+    padding: .65rem 1.05rem;
+    font-weight: 700;
+}
+
+    .btn-opet:hover {
+        background: #002a84;
+        color: #fff;
+    }
+
+.btn-opet-outline {
+    border: 1px solid rgba(255,255,255,.28);
+    color: #fff;
+    border-radius: 999px;
+    padding: .65rem 1.05rem;
+    font-weight: 700;
+    background: transparent;
+}
+
+    .btn-opet-outline:hover {
+        border-color: rgba(255,215,0,.55);
+        color: var(--opet-gold);
+    }
+
+/* =========================
+   HERO
+========================= */
+.hero-section {
+    position: relative;
+    padding: 1rem 0 0;
+    background: radial-gradient(circle at 20% 20%, rgba(192,10,30,.14), transparent 40%), radial-gradient(circle at 80% 10%, rgba(255,215,0,.12), transparent 45%), linear-gradient(180deg, rgba(0,51,160,.06), transparent 55%);
+}
+
+    .hero-section .badge {
+        border: 1px solid rgba(0,0,0,.06);
+    }
+
+/* Swiper look */
+.heroSwiper {
+    border-radius: var(--radius-xl);
+    border: 1px solid rgba(0,0,0,.06);
+}
+
+    .heroSwiper .swiper-button-prev,
+    .heroSwiper .swiper-button-next {
+        color: var(--opet-navy);
+    }
+
+    .heroSwiper .swiper-pagination-bullet-active {
+        background: var(--opet-red);
+    }
+
+/* =========================
+   FUEL PRICE PANEL (DARK)
+========================= */
+.fuel-prices-section .price-panel {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #001a52 0%, var(--opet-navy) 55%, #001a52 100%);
+    border: 1px solid rgba(255,255,255,.10);
+    box-shadow: var(--shadow-md);
+}
+
+    .fuel-prices-section .price-panel::before {
+        content: "";
+        position: absolute;
+        inset: -40% -30%;
+        background: radial-gradient(circle at 20% 25%, rgba(192,10,30,.28), transparent 40%), radial-gradient(circle at 80% 35%, rgba(255,215,0,.18), transparent 42%), radial-gradient(circle at 55% 85%, rgba(255,255,255,.10), transparent 45%);
+        transform: rotate(8deg);
+        pointer-events: none;
+    }
+
+.price-tile {
+    position: relative;
+    background: rgba(0,0,0,.18);
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 1rem;
+    padding: 1rem 1.1rem;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    backdrop-filter: blur(6px);
+}
+
+    .price-tile:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 35px rgba(0,0,0,.22);
+        border-color: rgba(255,215,0,.40);
+    }
+
+.price-label {
+    color: #fff;
+    font-weight: 800;
+    font-size: .95rem;
+}
+
+.price-badge {
+    background: rgba(255,215,0,.12);
+    border: 1px solid rgba(255,215,0,.35);
+    color: var(--opet-gold);
+}
+
+.price-value {
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.85rem;
+    letter-spacing: -.6px;
+    line-height: 1.1;
+}
+
+.price-sub {
+    margin-top: .2rem;
+}
+
+/* =========================
+   SERVICES CARDS
+========================= */
+.services-section {
+    background: #fafafa;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+    border: 1px solid rgba(0,0,0,.06);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+    .service-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 55px rgba(0,0,0,.10);
+        border-color: rgba(0,51,160,.22);
+    }
+
+.service-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    font-size: 1.35rem;
+    background: linear-gradient(135deg, var(--opet-navy) 0%, var(--opet-red) 100%);
+    margin-bottom: .75rem;
+}
+
+.service-icon--gold {
+    background: linear-gradient(135deg, var(--opet-navy) 0%, var(--opet-gold) 100%);
+}
+
+.service-icon--red {
+    background: linear-gradient(135deg, var(--opet-red) 0%, var(--opet-navy) 100%);
+}
+
+.service-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+    .service-list li {
+        display: flex;
+        gap: .55rem;
+        align-items: flex-start;
+        margin: .45rem 0;
+        color: #495057;
+    }
+
+    .service-list i {
+        color: var(--opet-navy);
+        margin-top: .18rem;
+    }
+
+/* =========================
+   SCROLL TO TOP
+========================= */
+.scroll-top-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(0,18,51,.92);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 14px 35px rgba(0,0,0,.22);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 9999;
+}
+
+    .scroll-top-btn.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+/* =========================
+   FOOTER
+========================= */
+.site-footer {
+    background: #001233;
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+    .site-footer a {
+        color: var(--opet-gold);
+        text-decoration: none;
+    }
+
+        .site-footer a:hover {
+            text-decoration: underline;
+        }

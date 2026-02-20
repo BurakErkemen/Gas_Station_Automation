@@ -1,0 +1,345 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<!-- =========================
+            HERO
+========================== -->
+<section class="hero-section">
+    <div class="container py-4 py-lg-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <div class="mb-3">
+                    <span class="badge rounded-pill text-bg-light">
+                        Opet Çözüm Ortağı • Hatay / Belen
+                    </span>
+                </div>
+
+                <h1 class="display-5 fw-bold mb-3">
+                    Kahramanlar Belen Akaryakıt
+                </h1>
+
+                <p class="lead text-muted mb-4">
+                    Güvenli yakıt, hızlı hizmet ve konforlu mola noktası.
+                    Canlı akaryakıt fiyatları Firestore üzerinden güncellenir.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="#fuel-prices" class="btn btn-opet">
+                        <i class="fa-solid fa-chart-line me-2"></i>Fiyatları Gör
+                    </a>
+                    <a href="#contact" class="btn btn-opet-outline">
+                        <i class="fa-solid fa-location-dot me-2"></i>Konum & İletişim
+                    </a>
+                </div>
+
+                <div class="mt-4 d-flex flex-wrap gap-3 text-muted small">
+                    <span><i class="fa-solid fa-shield-halved me-2"></i>Güvenli Dolum</span>
+                    <span><i class="fa-solid fa-bolt me-2"></i>Hızlı Hizmet</span>
+                    <span><i class="fa-solid fa-mug-hot me-2"></i>Mola Alanı</span>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Swiper Slider -->
+                <div class="swiper heroSwiper rounded-4 overflow-hidden shadow-sm">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="p-4 p-lg-5 bg-light">
+                                <h3 class="h4 fw-semibold mb-2">Opet Kalitesi</h3>
+                                <p class="text-muted mb-0">
+                                    Standartlara uygun, güvenilir akaryakıt ve profesyonel hizmet.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="p-4 p-lg-5 bg-light">
+                                <h3 class="h4 fw-semibold mb-2">Market İmkânı</h3>
+                                <p class="text-muted mb-0">
+                                    Yol üstü ihtiyaçlarınız için pratik alışveriş.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="p-4 p-lg-5 bg-light">
+                                <h3 class="h4 fw-semibold mb-2">Konforlu Mola</h3>
+                                <p class="text-muted mb-0">
+                                    Kısa bir mola ile yolculuğunuza taze bir başlangıç.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     ANLIK AKARYAKIT FİYATLARI
+========================== -->
+<section id="fuel-prices" class="fuel-prices-section py-5">
+    <div class="container">
+        <div class="price-panel p-4 p-lg-5 rounded-4">
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3 mb-4">
+                <div>
+                    <h2 class="mb-1 text-white">Anlık Akaryakıt Fiyatları</h2>
+                    <p class="mb-0 text-white-50">
+                        Hatay / Belen • Veriler Firestore üzerinden canlı güncellenir.
+                    </p>
+                </div>
+
+                <div class="small text-white-50">
+                    Son güncelleme: <span id="fuelPricesUpdatedAt">—</span>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-6 col-lg-3">
+                    <div class="price-tile h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="price-label">
+                                <i class="fa-solid fa-gas-pump me-2"></i>Benzin
+                            </span>
+                            <span class="badge price-badge">₺/L</span>
+                        </div>
+                        <div class="price-value" id="benzinPrice">—</div>
+                        <div class="price-sub text-white-50 small">KDV dahil</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="price-tile h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="price-label">
+                                <i class="fa-solid fa-oil-can me-2"></i>Dizel
+                            </span>
+                            <span class="badge price-badge">₺/L</span>
+                        </div>
+                        <div class="price-value" id="dizelPrice">—</div>
+                        <div class="price-sub text-white-50 small">KDV dahil</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="price-tile h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="price-label">
+                                <i class="fa-solid fa-droplet me-2"></i>Eurodiesel
+                            </span>
+                            <span class="badge price-badge">₺/L</span>
+                        </div>
+                        <div class="price-value" id="eurodieselPrice">—</div>
+                        <div class="price-sub text-white-50 small">KDV dahil</div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="price-tile h-100">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <span class="price-label">
+                                <i class="fa-solid fa-fire-flame-simple me-2"></i>LPG
+                            </span>
+                            <span class="badge price-badge">₺/L</span>
+                        </div>
+                        <div class="price-value" id="lpgPrice">—</div>
+                        <div class="price-sub text-white-50 small">KDV dahil</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-between gap-2">
+                <div class="text-white-50 small">
+                    <i class="fa-solid fa-circle-info me-2"></i>
+                    Fiyatlar bilgilendirme amaçlıdır; pompaya göre değişiklik gösterebilir.
+                </div>
+                <a class="btn btn-opet-outline btn-sm" href="#contact">
+                    <i class="fa-solid fa-phone me-2"></i>İletişime Geç
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+          HAKKIMIZDA
+========================== -->
+<section id="about" class="py-5">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="mb-3">Hakkımızda</h2>
+                <p class="text-muted mb-3">
+                    Kahramanlar Belen Akaryakıt olarak Hatay/Belen bölgesinde,
+                    Opet çözüm ortağı güvencesiyle hizmet veriyoruz.
+                </p>
+                <ul class="list-unstyled text-muted mb-0">
+                    <li class="mb-2"><i class="fa-solid fa-check me-2 text-primary"></i>Kurumsal yaklaşım & müşteri memnuniyeti</li>
+                    <li class="mb-2"><i class="fa-solid fa-check me-2 text-primary"></i>Hızlı dolum & güvenli ödeme</li>
+                    <li class="mb-2"><i class="fa-solid fa-check me-2 text-primary"></i>Market ve mola alanı</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-4 rounded-4 bg-light">
+                    <h3 class="h5 fw-semibold mb-2">Misyonumuz</h3>
+                    <p class="text-muted mb-0">
+                        Yolculuğunuzu daha güvenli, hızlı ve konforlu kılacak hizmeti istikrarlı şekilde sunmak.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+          HİZMETLER
+========================== -->
+<section id="services" class="services-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mb-2">Hizmetler</h2>
+            <p class="text-muted mb-0">Yakıt, market ve konforlu mola çözümleriyle hizmetinizdeyiz.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-gas-pump"></i>
+                    </div>
+                    <h3 class="h5 mb-2">Yakıt & Ödeme</h3>
+                    <p class="text-muted mb-3">
+                        Opet kalitesiyle güvenli dolum, hızlı ödeme ve kurumsal yakıt çözümleri.
+                    </p>
+                    <ul class="service-list mb-4">
+                        <li><i class="fa-solid fa-check"></i> Benzin, Dizel, Eurodiesel, LPG</li>
+                        <li><i class="fa-solid fa-check"></i> POS / temassız ödeme</li>
+                        <li><i class="fa-solid fa-check"></i> Kurumsal müşteri desteği</li>
+                    </ul>
+                    <a class="btn btn-opet mt-auto" href="#contact">
+                        <i class="fa-solid fa-arrow-right me-2"></i>Bilgi Al
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <div class="service-icon service-icon--gold">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <h3 class="h5 mb-2">Market</h3>
+                    <p class="text-muted mb-3">
+                        Yol üstü ihtiyaçlarınız için pratik alışveriş: atıştırmalık, içecek ve temel ürünler.
+                    </p>
+                    <ul class="service-list mb-4">
+                        <li><i class="fa-solid fa-check"></i> Sıcak/soğuk içecek</li>
+                        <li><i class="fa-solid fa-check"></i> Atıştırmalık & temel ihtiyaç</li>
+                        <li><i class="fa-solid fa-check"></i> Hızlı kasa</li>
+                    </ul>
+                    <a class="btn btn-opet mt-auto" href="#contact">
+                        <i class="fa-solid fa-arrow-right me-2"></i>Detay Sor
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card h-100">
+                    <div class="service-icon service-icon--red">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+                    <h3 class="h5 mb-2">Mola & Konfor</h3>
+                    <p class="text-muted mb-3">
+                        Temiz ve ferah bir mola alanı ile yolculuğunuza daha rahat devam edin.
+                    </p>
+                    <ul class="service-list mb-4">
+                        <li><i class="fa-solid fa-check"></i> Dinlenme alanı</li>
+                        <li><i class="fa-solid fa-check"></i> Temiz kullanım alanları</li>
+                        <li><i class="fa-solid fa-check"></i> Yol tarifi & destek</li>
+                    </ul>
+                    <a class="btn btn-opet mt-auto" href="#contact">
+                        <i class="fa-solid fa-arrow-right me-2"></i>İletişim
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+          İLETİŞİM
+========================== -->
+<section id="contact" class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <h2 class="mb-3">İletişim</h2>
+                <p class="text-muted mb-4">
+                    Konum, fiyatlar veya kurumsal çözümler için bize ulaşabilirsiniz.
+                </p>
+
+                <div class="d-flex gap-3 mb-3">
+                    <div class="text-primary fs-4"><i class="fa-solid fa-location-dot"></i></div>
+                    <div>
+                        <div class="fw-semibold">Adres</div>
+                        <div class="text-muted">Hatay / Belen (Adres bilgisini buraya ekleyin)</div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3 mb-3">
+                    <div class="text-primary fs-4"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <div class="fw-semibold">Telefon</div>
+                        <div class="text-muted">0 (000) 000 00 00</div>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <div class="text-primary fs-4"><i class="fa-solid fa-envelope"></i></div>
+                    <div>
+                        <div class="fw-semibold">E-posta</div>
+                        <div class="text-muted">info@ornek.com</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="rounded-4 overflow-hidden bg-light p-0">
+                    <!-- İstersen Google Maps iframe ekleyebilirsin -->
+                    <div class="p-4">
+                        <h3 class="h5 fw-semibold mb-2">Harita</h3>
+                        <p class="text-muted mb-0">
+                            Buraya Google Maps iframe veya statik bir harita görseli ekleyebiliriz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        // Swiper sadece bu sayfada kullanılacaksa burada başlatmak iyi olur.
+        // Swiper js ve css'in layout'ta yüklü olduğunu varsayar.
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof Swiper !== "undefined") {
+                new Swiper(".heroSwiper", {
+                    loop: true,
+                    autoplay: { delay: 4500, disableOnInteraction: false },
+                    pagination: { el: ".swiper-pagination", clickable: true },
+                    navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
+                });
+            }
+
+            // Eğer updateFuelPrices global ise ve "başlat" fonksiyonun varsa burada tetikleyebilirsin.
+            // Örn: updateFuelPrices(); veya initFuelPriceListener();
+            // try { if (typeof updateFuelPrices === "function") updateFuelPrices(); } catch (e) {}
+        });
+    </script>
+}
