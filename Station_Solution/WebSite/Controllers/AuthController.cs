@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using WebSite.Models.ViewModels;
-using WebSite.ServiceInterface;
+using WebSite.Repository.Layer.ViewModels;
+using WebSite.Services.Layer.AuthServices;
 
 namespace WebSite.Controllers;
 

@@ -11,11 +11,11 @@ public class AlisFatura
     [FirestoreProperty("turu")]
     public string Turu { get; set; } = default!;
 
-    [FirestoreProperty("lt")]
-    public double Lt { get; set; }
-
     [FirestoreProperty("fisno")]
     public int FisNo { get; set; }
+
+    [FirestoreProperty("lt")]
+    public double Lt { get; set; }
 
     [FirestoreProperty("tutar")]
     public double Tutar { get; set; }

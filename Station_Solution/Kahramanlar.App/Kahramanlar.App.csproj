@@ -10,11 +10,11 @@
     <PackageReference Include="Firebase.Auth" Version="1.0.0" />
     <PackageReference Include="FirebaseAdmin" Version="3.4.0" />
     <PackageReference Include="Google.Cloud.Firestore" Version="4.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services.Layer\FiyatListesiServices\" />
+    <ProjectReference Include="..\Kahramanlar.ServicesLayer\Kahramanlar.ServicesLayer.csproj" />
   </ItemGroup>
 
 </Project>
