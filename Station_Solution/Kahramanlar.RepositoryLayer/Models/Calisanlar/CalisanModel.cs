@@ -18,10 +18,13 @@ namespace Kahramanlar.RepositoryLayer.Models.Calisanlar
         public string TcNo { get; set; } = default!;
 
         [FirestoreProperty]
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         [FirestoreProperty]
         public DateTime IseGirisTarihi { get; set; }
+
+        [FirestoreProperty]
+        public DateTime? IstenCikisTarihi { get; set; }
 
         [FirestoreProperty]
         public DateTime CreatedAt { get; set; }

@@ -1,5 +1,4 @@
-﻿using Google.Cloud.Firestore;
-using Kahramanlar.RepositoryLayer.Models.Faturalar;
+﻿using Kahramanlar.RepositoryLayer.Models.Faturalar;
 using Kahramanlar.ServicesLayer.Services.Fatura.Create;
 using Kahramanlar.ServicesLayer.Services.Fatura.Update;
 using System.Net;
@@ -35,7 +34,7 @@ namespace Kahramanlar.ServicesLayer.Services.Fatura
             return ServiceResult<CreateFaturaResponse>.Success(new CreateFaturaResponse(faturaModel.FaturaId), HttpStatusCode.Created);
         }
 
-        public async Task<ServiceResult> UpdateFatura(UpdateFaturaRequest request)
+        public async Task<ServiceResult> UpdateFatura( UpdateFaturaRequest request)
         {
             var anyData = await faturaRepository.GetByIdAsync(request.FaturaId);
 

@@ -3,7 +3,8 @@ using WebSite.Models;
 
 namespace WebSite.Repository.Layer.FiyatListesi.Repo
 {
-    public class FiyatListesiRepository<T> : IFiyatListesiRepository<
+    public class FiyatListesiRepository<T> : IFiyatListesiRepository<T> 
+        where T : FiyatListesiModel
     {
         protected readonly FirestoreDb _firestoredb;
         protected readonly string _collectionName;

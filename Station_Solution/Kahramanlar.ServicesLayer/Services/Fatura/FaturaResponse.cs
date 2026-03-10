@@ -1,6 +1,4 @@
-﻿using Google.Protobuf.WellKnownTypes;
-
-namespace Kahramanlar.ServicesLayer.Services.Fatura;
+﻿namespace Kahramanlar.ServicesLayer.Services.Fatura;
 
 public record FaturaResponse(
     string Turu,
