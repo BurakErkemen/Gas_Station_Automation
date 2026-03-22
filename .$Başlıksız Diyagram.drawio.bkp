@@ -1,11 +1,11 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
   <diagram name="Sayfa -1" id="Bv2hJD2_9Gom_Vjg2nDC">
     <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-11" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="calısan" vertex="1">
-          <mxGeometry height="240" width="140" x="140" as="geometry">
+          <mxGeometry height="240" width="140" x="520" y="300" as="geometry">
             <mxRectangle height="30" width="80" x="640" y="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -110,9 +110,9 @@
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-66" parent="rDEx0AgT4EPbUqoYUTwg-38" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="tutar : double" vertex="1">
           <mxGeometry height="30" width="140" y="180" as="geometry" />
         </mxCell>
-        <mxCell id="rDEx0AgT4EPbUqoYUTwg-48" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="müşteri" vertex="1">
-          <mxGeometry height="180" width="140" as="geometry">
-            <mxRectangle height="30" width="80" x="640" as="alternateBounds" />
+        <mxCell id="rDEx0AgT4EPbUqoYUTwg-48" collapsed="1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="müşteri" vertex="1">
+          <mxGeometry height="30" width="80" x="600" y="30" as="geometry">
+            <mxRectangle height="180" width="140" x="520" y="350" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-49" parent="rDEx0AgT4EPbUqoYUTwg-48" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="musteriId : string" vertex="1">
@@ -133,8 +133,10 @@
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-55" edge="1" parent="1" source="rDEx0AgT4EPbUqoYUTwg-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.307;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="rDEx0AgT4EPbUqoYUTwg-38">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="rDEx0AgT4EPbUqoYUTwg-57" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="AlışFatura" vertex="1">
-          <mxGeometry height="240" width="140" x="547" as="geometry" />
+        <mxCell id="rDEx0AgT4EPbUqoYUTwg-57" collapsed="1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="AlışFatura" vertex="1">
+          <mxGeometry height="30" width="100" x="600" as="geometry">
+            <mxRectangle height="240" width="140" x="547" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-58" parent="rDEx0AgT4EPbUqoYUTwg-57" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="faturaId : String" vertex="1">
           <mxGeometry height="30" width="140" y="30" as="geometry" />
@@ -157,8 +159,10 @@
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-60" parent="rDEx0AgT4EPbUqoYUTwg-57" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="createdAt : timestamp" vertex="1">
           <mxGeometry height="30" width="140" y="210" as="geometry" />
         </mxCell>
-        <mxCell id="rDEx0AgT4EPbUqoYUTwg-67" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MüşteriÖdemeleri" vertex="1">
-          <mxGeometry height="210" width="140" x="687" as="geometry" />
+        <mxCell id="rDEx0AgT4EPbUqoYUTwg-67" collapsed="1" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="MüşteriÖdemeleri" vertex="1">
+          <mxGeometry height="30" width="140" x="600" y="60" as="geometry">
+            <mxRectangle height="210" width="140" x="600" y="60" as="alternateBounds" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="rDEx0AgT4EPbUqoYUTwg-68" parent="rDEx0AgT4EPbUqoYUTwg-67" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="odemeID : string" vertex="1">
           <mxGeometry height="30" width="140" y="30" as="geometry" />
